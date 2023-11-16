@@ -1,5 +1,3 @@
-import React from 'react';
-
 function UsernameInput({ value, onChange }) {
   return (
     <div className="mb-4">

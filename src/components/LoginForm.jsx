@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import UsernameInput from './UsernameInput.jsx';
 import PasswordInput from './PasswordInput.jsx';
 import LoginButton from './LoginBtn.jsx';
