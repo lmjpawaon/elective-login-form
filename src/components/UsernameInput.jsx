@@ -3,6 +3,7 @@ import React from 'react';
 function UsernameInput({ value, onChange }) {
   return (
     <div className="mb-4">
+      <label>Username</label>
       <input
         type="text"
         placeholder="Username"

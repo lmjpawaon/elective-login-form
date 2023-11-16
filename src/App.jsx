@@ -4,7 +4,7 @@ import LoginForm from './components/LoginForm'; // Import the LoginForm componen
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-testid="app-container">
       <LoginForm /> {/* Use the LoginForm component here */}
     </div>
   );

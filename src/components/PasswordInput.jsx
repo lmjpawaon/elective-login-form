@@ -3,6 +3,7 @@ import React from 'react';
 function PasswordInput({ value, onChange }) {
   return (
     <div className="mb-4">
+      <label>Password</label>
       <input
         type="password"
         placeholder="Password"
