@@ -23,7 +23,7 @@ test('Should render the label', () => {
     expect(label).toBeInTheDocument();
 });
 
-// PASSWORD INPUT
+// PASSWORD
 test('Should Render PasswordInput', () => {
     render(<PasswordInput />);
     const input = screen.getByPlaceholderText('Password');
