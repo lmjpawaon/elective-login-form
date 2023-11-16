@@ -1,25 +1,33 @@
-import { render, screen } from '@testing-library/react';
-// import App from "../src/App";
+import { render, screen, fireEvent } from '@testing-library/react';
 import LoginButton from '../src/components/LoginBtn';
-import { vi } from 'vitest';
+import { expect, test, vi} from 'vitest';
 
+// SHOULD RENDER THE BUTTON
+test('Should Render Button', () => {
+  render(<LoginButton/>);
+  const button = screen.getByRole("button");
+  expect(button).toBeInTheDocument();
+});
 
-describe('Button', () => {
-  it('renders btn', () => {
-    render(<LoginButton/>);
-    const button = screen.getByRole("button");
-    expect(button).toBeInTheDocument();
-  });
+// SHOULD BE CLICKED
+test('Button should be clicked', async () => {
+  const mockOnClick = vi.fn();
+  render(<LoginButton onClick={mockOnClick} />);
+  const button = screen.getByRole('button');
+  fireEvent.click(button);
+  expect(mockOnClick).toHaveBeenCalled();
+});
 
-  it('renders btn disabled', () => {
-    render(<LoginButton isDisabled={true}/>);
-    const button = screen.getByRole("button");
-    expect(button).toBeDisabled();
-  });
+// SHOULD BE DISABLED
+test('Renders Disabled Button', () => {
+  render(<LoginButton isDisabled={true}/>);
+  const button = screen.getByRole("button");
+  expect(button).toBeDisabled();
+});
 
-//   it('should be able to click btn', () => {
-//     const fn = vi.fn()
-//     render(<LoginButton onClick={fn}/>);
-//     expect(fn).toHaveBeenCalled();
-//   });
+//SHOULD RENDER THE TEXT
+test('Renders Button Text', () => {
+  render(<LoginButton />);
+  const button = screen.getByRole('button');
+  expect(button).toHaveTextContent('Login');
 });
