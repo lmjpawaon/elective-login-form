@@ -31,7 +31,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="w-1/4 mx-auto mt-8">
+    <div className="w-1/4 mx-auto mt-8" data-testid='app-form'>
       <h1 className="text-2xl mb-4">Login Form</h1>
       <UsernameInput value={username} onChange={handleUsernameChange} />
       <PasswordInput value={password} onChange={handlePasswordChange} />

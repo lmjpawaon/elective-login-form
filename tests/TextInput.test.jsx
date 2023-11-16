@@ -1,44 +1,32 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import PasswordInput from '../src/components/PasswordInput';
 import UsernameInput from '../src/components/UsernameInput';
+import LoginForm from '../src/components/LoginForm';
 import { expect, test} from 'vitest';
 
-// USERNAME
-test('Should Render UsernameInput', () => {
-    render(<UsernameInput />);
-    const input = screen.getByPlaceholderText('Username');
-    expect(input).toBeInTheDocument();
+// SHOULD BE RENDERED
+test('Should Render LoginForm', () => {
+    render(<LoginForm />);
+    const textInput = screen.getByTestId("app-form");
+    expect(textInput).toBeInTheDocument();
 });
 
+// SHOULD BE ABLE TO TYPE
 test('Should be able to type', () => {
-    render(<UsernameInput />);
-    const input = screen.getByPlaceholderText('Username');
-    fireEvent.change(input, { target: { value: 'testusername' } });
-    expect(input.value).toBe('testusername');
+    render(<LoginForm />);
+    const usernameInput = screen.getByPlaceholderText('Username');
+    const passwordInput = screen.getByPlaceholderText('Password');
+    fireEvent.change(usernameInput, { target: { value: 'testusername' } });
+    fireEvent.change(passwordInput, { target: { value: 'testusername' } });
+    expect(usernameInput.value).toBe('testusername');
+    expect(passwordInput.value).toBe('testusername');
 });
 
+// SHOULD BE ABLE TO RENDER THE LABEL
 test('Should render the label', () => {
-    render(<UsernameInput />);
-    const label = screen.getByText('Username');
-    expect(label).toBeInTheDocument();
-});
-
-// PASSWORD
-test('Should Render PasswordInput', () => {
-    render(<PasswordInput />);
-    const input = screen.getByPlaceholderText('Password');
-    expect(input).toBeInTheDocument();
-});
-
-test('Should be able to type', () => {
-    render(<PasswordInput />);
-    const input = screen.getByPlaceholderText('Password');
-    fireEvent.change(input, { target: { value: 'testpassword' } });
-    expect(input.value).toBe('testpassword');
-});
-
-test('Should render the label', () => {
-    render(<PasswordInput />);
-    const label = screen.getByText('Password');
-    expect(label).toBeInTheDocument();
+    render(<LoginForm />);
+    const usernameLabel = screen.getByText('Username');
+    const passwordLabel = screen.getByText('Password');
+    expect(usernameLabel).toBeInTheDocument();
+    expect(passwordLabel).toBeInTheDocument();
 });
