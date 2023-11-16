@@ -1,6 +1,4 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import PasswordInput from '../src/components/PasswordInput';
-import UsernameInput from '../src/components/UsernameInput';
 import LoginForm from '../src/components/LoginForm';
 import { expect, test} from 'vitest';
 
