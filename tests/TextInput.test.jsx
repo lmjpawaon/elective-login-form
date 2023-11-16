@@ -4,7 +4,6 @@ import UsernameInput from '../src/components/UsernameInput';
 import { expect, test} from 'vitest';
 
 // USERNAME
-
 test('Should Render UsernameInput', () => {
     render(<UsernameInput />);
     const input = screen.getByPlaceholderText('Username');
