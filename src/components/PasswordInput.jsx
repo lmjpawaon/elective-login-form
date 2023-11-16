@@ -3,7 +3,6 @@ function PasswordInput({ value, onChange }) {
     <div className="mb-4">
       <label>Password</label>
       <input
-        id = "passwordInputq"
         type="password"
         placeholder="Password"
         value={value}
